@@ -1,0 +1,17 @@
+    {% extends 'usuarios/base.html' %}
+    {% block conteudo %}
+    
+    <!-- AQUI, CRIEI O FORMULÁRIO PARA USAR NO DJANGO -->
+    <form action="{% url 'usuarios' %}" method="post" style="margin-top: 120px;">
+      {% csrf_token %}
+
+        <div style="text-align: center;" class="container">
+            <h1 style="font-size: 30px;">Cadastre um usuário:</h1>
+            <input name="nome" class="form-control" type="text" required placeholder="Insira o nome" style="margin: 20px; text-align: center;">
+            <input name="idade" class="form-control" type="number" required placeholder="&nbsp;&nbsp;&nbsp;Insira a idade" style="margin: 20px; text-align: center;">
+            <button class="btn btn-outline-primary">Enviar</button>
+        </div>
+    
+    </form>
+
+    {% endblock %} 

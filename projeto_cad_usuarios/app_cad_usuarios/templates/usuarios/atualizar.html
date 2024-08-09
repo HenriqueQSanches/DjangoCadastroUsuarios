@@ -1,0 +1,27 @@
+    {% extends 'usuarios/base.html' %}
+    {% block conteudo %}
+    
+    <div class="container" style="text-align: center;">
+    <h1 style="font-size: 30px; margin-top: 50px;">Atualizar usuário por ID</h1>
+    <form method="post" action="{% url 'atualizar_por_id' %}" style="margin-top: 20px;">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="number" class="form-control" id="id_usuario" name="id_usuario" required placeholder="Insira o ID do Usuário" style="text-align: center; margin-bottom: 10px;">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="nome" name="nome" required placeholder="Novo nome" style="text-align: center; margin-bottom: 10px;">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="idade" name="idade" required placeholder="Nova idade" style="text-align: center; margin-bottom: 10px;">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Atualizar usuário</button>
+    </form>
+    
+    {% if mensagem %}
+    <div class="alert {% if sucesso %}alert-success{% else %}alert-danger{% endif %} mt-3">
+        {{ mensagem }}
+    </div>
+    {% endif %}
+</div>
+
+    {% endblock %} 
